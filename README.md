@@ -58,7 +58,7 @@ and a cache mechanism to minimize redundant network requests.
 
 - `src/app/components/`: Contains Angular components (e.g., users-list, user-details).
 - `src/app/shared/services/`: Houses services for HTTP requests and caching logic.
-- `src/app/shared/models/`: Defines models/interfaces to type-check the user data.
+- `src/app/shared/model/`: Defines models/interfaces to type-check the user data.
 - `src/app/app-routing.module.ts`: Manages routing for the application.
 - `src/environments` :  Includes environment files for managing API base URLs.
 
