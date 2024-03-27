@@ -1,0 +1,22 @@
+<ng-container>
+  <div *ngIf="user">
+    <mat-card>
+      <mat-card-header>
+        <img mat-card-avatar [src]="user.avatar">
+        <mat-card-title>{{ user.first_name }} {{ user.last_name }}</mat-card-title>
+        <mat-card-subtitle>{{ user.email }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>
+          More details about {{ user.first_name }} could go here. Or search by <b>Id : {{ user.id }} </b>
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button (click)="goBack()">Go Back</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</ng-container>
+<ng-container *ngIf="isLoading">
+  <mat-progress-spinner mode="indeterminate" />
+</ng-container>

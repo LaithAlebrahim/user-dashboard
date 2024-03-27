@@ -1,0 +1,34 @@
+<app-header *ngIf="!isLoading" class="header"/>
+<ng-container>
+  <div class="user-list" *ngIf="users && users.length > 0 ">
+    <div class="user-card" *ngFor="let user of users" (click)="onClick(user.id)">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>{{ user.first_name }} {{ user.last_name }}</mat-card-title>
+          <mat-card-subtitle>{{ user.email }}</mat-card-subtitle>
+          <img mat-card-avatar [src]="user.avatar">
+        </mat-card-header>
+      </mat-card>
+    </div>
+  </div>
+  <mat-paginator 
+        *ngIf="!isLoading && (users && users.length != 0)"
+        [length]="totalUsers"
+        [pageSize]="usersPerPage"
+        [pageIndex]="currentPage - 1"
+        (page)="onPaginateChange($event)">
+  </mat-paginator>
+</ng-container>
+<ng-container *ngIf="users && users.length == 0">
+  <div>
+    <h1> User not found :( </h1>
+  </div>
+</ng-container>
+<ng-container *ngIf="Error">
+  <div>
+    <h1> Error happened please refresh :( </h1>
+  </div>
+</ng-container>
+<ng-container *ngIf="isLoading">
+  <mat-progress-spinner mode="indeterminate" />
+</ng-container>
